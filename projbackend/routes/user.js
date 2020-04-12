@@ -1,18 +1,11 @@
-const User=require("../models/user");
+const express = require("express");
+const router = express.Router();
 
-exports.getUserById=(req,res,next,id)=>{
-    User.findById(id).exec((err,user)=>{
-        if(err || !user){
-            return res.status(400).json({
-               error:"No user found in DB" 
-                
-            });
-        }
-        req.profile=user;
-        next();
-    });
-};
+const { getUserById, getUser } = require("../controllers/user");
+const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
-exports.getUser=(req,res)=>{
-    return res.json(req.profile);
-};
+router.param("userId", getUserById);
+
+router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
+
+module.exports = router;
