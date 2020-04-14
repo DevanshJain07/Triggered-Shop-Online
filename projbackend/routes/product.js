@@ -19,7 +19,7 @@ router.get("/product/photo/:productId",photo);
 //delete
 router.delete("/product/:productId/:userId",isSignedIn,isAuthenticated,isAdmin,deleteProduct);
 //update
-router.delete("/product/:productId/:userId",isSignedIn,isAuthenticated,isAdmin,updateProduct);
+router.put("/product/:productId/:userId",isSignedIn,isAuthenticated,isAdmin,updateProduct);
 //listing route
 
 module.exports = router;
