@@ -1,7 +1,4 @@
 import {API} from "../../backend";
-// import { useReducer } from "react";
-
-
 
 export const signup=user=>{
     return fetch(`${API}/signup`,{
@@ -35,14 +32,14 @@ export const signin=user=>{
 
 export const authenticate=(data,next)=>{
     if(typeof window !=="undefined"){
-        localStorage.setItem("jwt",JSON.stringify(data))
+        localStorage.setItem("jwt",JSON.stringify(data));
         next();
     }
-}
+};
 
 export const signout=next=>{
     if(typeof window !=="undefined"){
-        localStorage.setItem("jwt")
+        localStorage.removeItem("jwt");
         next();
 
         return fetch(`${API}/signout`,{
@@ -54,7 +51,7 @@ export const signout=next=>{
 };
 
 export const isAuthenticated=()=>{
-    if(typeof window !=="undefined"){
+    if(typeof window =="undefined"){
         return false;
     }
     if(localStorage.getItem("jwt")){
