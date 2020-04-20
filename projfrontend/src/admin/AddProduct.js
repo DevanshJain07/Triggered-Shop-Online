@@ -1,6 +1,8 @@
-import React,{useState} from "react"
+import React,{useState,useEffect} from "react"
 import Base from "../core/Base"
 import { Link } from "react-router-dom"
+import {getCategories} from "./helper/adminapicall"
+import { cleanup } from "@testing-library/react";
 
 const AddProduct=()=>{
 
@@ -21,6 +23,21 @@ const AddProduct=()=>{
 
     const {name,description,price,stock,categories,category,loading,error,createdProduct,getRedirect,formData}=values;
 
+    const preload=()=>{
+        getCategories.then(data=>{
+            if(data.error){
+                setValues({...values,error:data.error});
+            }else{
+                setValues({...values,categories:data,formData:new FormData() });
+                console.log("CATE:",categories);
+            }
+        });
+    };
+
+
+    useEffect(()=>{
+       preload();
+    },[]);
 
     const onSubmit=()=>{
 
