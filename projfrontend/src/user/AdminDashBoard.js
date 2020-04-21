@@ -1,6 +1,6 @@
 import React from "react"
 import Base from "../core/Base"
-import { isAuthenticated } from "../auth/helper";
+import { isAuthenticated } from "../auth/helper/index";
 import { Link } from "react-router-dom";
  
 const AdminDashBoard=()=>{

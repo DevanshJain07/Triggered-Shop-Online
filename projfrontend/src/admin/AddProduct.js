@@ -87,12 +87,6 @@ const AddProduct = () => {
     </div>
   );
 
-  const errorMessage=()=>(
-      <div className="alert alert-success mt-3">
-      <h4>{createdProduct} not created successfully</h4>
-      </div>
-  );
-
   const createProductForm = () => (
     <form>
       <span>Post photo</span>
@@ -180,7 +174,6 @@ const AddProduct = () => {
       </Link>
       <div className="row bg-dark text-white rounded">
         <div className="col-md-8 offset-md-2">
-          {errorMessage()}
           {successMessage()}
           {createProductForm()}
         </div>

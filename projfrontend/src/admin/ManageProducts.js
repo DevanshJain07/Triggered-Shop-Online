@@ -14,7 +14,7 @@ const ManageProducts = () => {
       if (data.error) {
         console.log(data.error);
       } else {
-        setProducts(data);
+       setProducts(data);
       }
     });
   };
@@ -22,6 +22,8 @@ const ManageProducts = () => {
   useEffect(() => {
     preload();
   }, []);
+
+
 
   const deleteThisProduct = productId => {
     deleteProduct(productId, user._id, token).then(data => {

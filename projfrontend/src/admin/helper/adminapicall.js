@@ -40,15 +40,15 @@ export const createaProduct=(userId,token,product)=>{
 };
 
 //get all products
-export const getProducts=()=>{
-    return fetch(`${API}/products`,{
-        method:"GET"
+export const getProducts = () => {
+    return fetch(`${API}/products`, {
+      method: "GET"
     })
-    .then(response=>{
+      .then(response => {
         return response.json();
-    })
-    .catch(err=>console.log(err));
-};
+      })
+      .catch(err => console.log(err));
+  };
 
 //get a product
 export const getProduct = productId => {
@@ -77,15 +77,16 @@ export const updateProduct=(productId,userId,token,product)=>{
 };
 
 //delete a product
-export const deleteProduct=(productId,userId,token)=>{
-    return fetch(`${API}/product/${productId}/${userId}`,{
-        method:"DELETE",
-        headers:{
-            Accept:"application/json",
-            Authorization:`Bearer ${token}`
-        }
-    }).then(response=>{
-        return response.json()
+export const deleteProduct = (productId, userId, token) => {
+    return fetch(`${API}/product/${productId}/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`
+      }
     })
-    .catch(err=>console.log(err))
-};
+      .then(response => {
+        return response.json();
+      })
+      .catch(err => console.log(err));
+  };
