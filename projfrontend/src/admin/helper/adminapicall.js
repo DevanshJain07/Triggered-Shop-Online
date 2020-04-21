@@ -51,15 +51,15 @@ export const getProducts=()=>{
 };
 
 //get a product
-export const getProduct=productId=>{
-    return fetch(`${API}/product/${productId}`,{
-        method:"GET"
+export const getProduct = productId => {
+    return fetch(`${API}/product/${productId}`, {
+      method: "GET"
     })
-    .then(response=>{
+      .then(response => {
         return response.json();
-    })
-    .catch(err=>console.log(err));
-};
+      })
+      .catch(err => console.log(err));
+  };
 
 //update a product
 export const updateProduct=(productId,userId,token,product)=>{
