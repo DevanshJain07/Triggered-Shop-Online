@@ -90,3 +90,33 @@ export const deleteProduct = (productId, userId, token) => {
       })
       .catch(err => console.log(err));
   };
+
+  //delete categories
+  export const deleteCategory = (categoryId, userId, token) => {
+    return fetch(`${API}/category/${categoryId}/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .catch(err => console.log(err));
+  };
+
+  //update a category
+export const updateCategory=(categoryId,userId,token,category)=>{
+  return fetch(`${API}/category/${categoryId}/${userId}`,{
+      method:"PUT",
+      headers:{
+          Accept:"application/json",
+          Authorization:`Bearer ${token}`
+      },
+      body:category
+  }).then(response=>{
+      return response.json()
+  })
+  .catch(err=>console.log(err))
+};
