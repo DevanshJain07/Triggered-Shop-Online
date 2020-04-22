@@ -120,3 +120,14 @@ export const updateCategory=(categoryId,userId,token,category)=>{
   })
   .catch(err=>console.log(err))
 };
+
+//get a category
+export const getCategory = categoryId => {
+  return fetch(`${API}/category/${categoryId}`, {
+    method: "GET"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};

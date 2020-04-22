@@ -53,6 +53,23 @@ exports.updateCategory = (req, res) => {
   });
 };
 
+// exports.updateCategory=(req,res)=>{
+//   Category.findByIdAndUpdate(
+//     {_id:req.category._id},
+//     {$set:req.body},
+//     {useFindAndModify:false},
+//     (err,category)=>{
+//       console.log(req.body)
+//       if(err || !category){
+//         return res.status(400).json({
+//           error:"Category not found"
+//         })
+//       }
+//       res.json(category);
+//     }
+//   )
+// }
+
 exports.removeCategory = (req, res) => {
   const category = req.category;
 
