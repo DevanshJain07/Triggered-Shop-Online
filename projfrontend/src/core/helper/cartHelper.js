@@ -42,4 +42,5 @@ export const addItemToCart = (item, next) => {
       localStorage.removeItem("cart")
       next();
     }
-  }
+  };
+  
