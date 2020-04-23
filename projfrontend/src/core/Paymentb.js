@@ -58,7 +58,8 @@ const Paymentb = ({ products, setReload = f => f, reload = undefined }) => {
   const onPurchase = () => {
     setInfo({ loading: true });
     let nonce;
-    let getNonce = info.instance.requestPaymentMethod().then(data => {
+    let getNonce = info.instance.requestPaymentMethod()
+    .then(data => {
       nonce = data.nonce;
       const paymentData = {
         paymentMethodNonce: nonce,
@@ -97,7 +98,7 @@ const Paymentb = ({ products, setReload = f => f, reload = undefined }) => {
 
   return (
     <div>
-      <h3>Your bill is {getAmount()} $</h3>
+      <h3>Your bill is {getAmount()} Rs.</h3>
       {showbtdropIn()}
     </div>
   );

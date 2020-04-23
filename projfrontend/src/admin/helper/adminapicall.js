@@ -105,9 +105,12 @@ export const deleteProduct = (productId, userId, token) => {
       .catch(err => console.log(err));
   };
 
+
+  
+
   //update a category
 export const updateCategory=(categoryId,userId,token,category)=>{
-  return fetch(`${API}/category/${categoryId}/${userId}`,{
+  return fetch(`${API}category/${categoryId}/${userId}`,{
       method:"PUT",
       headers:{
           Accept:"application/json",
@@ -116,10 +119,11 @@ export const updateCategory=(categoryId,userId,token,category)=>{
       },
       body:JSON.stringify(category)
   }).then(response=>{
-      return response.json()
+      return response.json();
   })
   .catch(err=>console.log(err))
 };
+
 
 //get a category
 export const getCategory = categoryId => {

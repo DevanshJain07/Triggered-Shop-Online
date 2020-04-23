@@ -127,3 +127,4 @@ const UpdateCategory = ({ match }) => {
 };
 
 export default UpdateCategory;
+
